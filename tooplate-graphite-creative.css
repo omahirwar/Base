@@ -236,3 +236,61 @@ footer {
     .about-container,
     .contact-container { grid-template-columns: 1fr; }
 }
+/* ===============================
+   PREMIUM BASE BACKGROUND ANIMATION
+   =============================== */
+
+/* Animated background wrapper */
+.section-hero::before,
+.section-services::before,
+.section-portfolio::before,
+.section-about::before,
+.section-contact::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        #0052ff,
+        #3b82f6,
+        #93c5fd,
+        #ffffff
+    );
+    background-size: 300% 300%;
+    animation: baseWave 12s ease infinite;
+    opacity: 0.12;
+    z-index: 0;
+}
+
+/* Keep content above animation */
+.section-hero,
+.section-services,
+.section-portfolio,
+.section-about,
+.section-contact {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-hero > *,
+.section-services > *,
+.section-portfolio > *,
+.section-about > *,
+.section-contact > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animation keyframes */
+@keyframes baseWave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
